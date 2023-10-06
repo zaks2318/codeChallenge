@@ -22,7 +22,7 @@ public class RewardsController {
         this.rewardsService = rewardsService;
     }
 
-    @GetMapping("/MonthlyRewards")
+    @GetMapping("/monthly-rewards")
     public ResponseEntity getMonthlyRewardReport(@RequestParam Integer customerId) throws ServiceException{
 
         long start = System.nanoTime();
@@ -39,7 +39,7 @@ public class RewardsController {
         return ResponseEntity.ok().body(report);
     }
 
-    @GetMapping("/TotalRewards")
+    @GetMapping("/total-rewards")
     public ResponseEntity getTotalRewardReport(@RequestParam Integer customerId) throws ServiceException{
 
         long start = System.nanoTime();

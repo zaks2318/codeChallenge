@@ -30,6 +30,5 @@ class TransactionRepositoryTest {
         List<Transaction> transactionList = new ArrayList<>();
         transactionList.add(transaction);
 
-        // can not test Interface
     }
 }
