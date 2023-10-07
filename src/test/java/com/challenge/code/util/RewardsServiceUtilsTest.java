@@ -20,6 +20,10 @@ import static org.junit.jupiter.api.Assertions.*;
 @ExtendWith(MockitoExtension.class)
 class RewardsServiceUtilsTest {
 
+    private int RewardLevelOne = 50;
+
+    private int RewardLevelTwo = 100;
+
     private Integer customerId = 3;
 
     @InjectMocks
@@ -48,6 +52,22 @@ class RewardsServiceUtilsTest {
         Map<Integer,Long> monthlyReward1 = rewardsServiceUtils.getMonthlyRewardsByCustomerId(customerId);
 
         Assertions.assertEquals(monthlyReward, monthlyReward1);
+    }
+
+    @Test
+    void calculateRewardTwoLevels() {
+        Long roundAmount = (long) Math.round((150-RewardLevelOne) + (150-RewardLevelTwo));
+        Long result = rewardsServiceUtils.calculateReward(150.0);
+
+        Assertions.assertEquals(roundAmount, result);
+    }
+
+    @Test
+    void calculateRewardLevelOne() {
+        Long roundAmount = (long) Math.round(60-RewardLevelOne);
+        Long result = rewardsServiceUtils.calculateReward(60.0);
+
+        Assertions.assertEquals(roundAmount, result);
     }
 
     @Test

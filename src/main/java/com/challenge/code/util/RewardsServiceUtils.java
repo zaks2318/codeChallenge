@@ -34,7 +34,7 @@ public class RewardsServiceUtils {
         return monthlyReward;
     }
 
-    private Long calculateReward(Double amount){
+    protected Long calculateReward(Double amount){
         if (amount>RewardLevelOne && amount >RewardLevelTwo){
             return Math.round((amount-RewardLevelOne) + (amount-RewardLevelTwo));
         } else if (amount>RewardLevelOne) {

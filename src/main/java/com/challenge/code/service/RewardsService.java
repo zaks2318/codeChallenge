@@ -23,7 +23,7 @@ public class RewardsService {
         log.info("RewardsService--getMonthlyRewardsByCustomerId rewards months: " + rewards.size());
         StringBuilder report = new StringBuilder();
         for (Map.Entry<Integer, Long> e: rewards.entrySet()) {
-            report.append("In "+ e.getKey() + ", this month," + " You earned " + e.getValue()+" points. \n");
+            report.append("In "+ e.getKey() + ", this month," + " You earned " + e.getValue()+" points.\n");
         }
         return report.toString();
     }

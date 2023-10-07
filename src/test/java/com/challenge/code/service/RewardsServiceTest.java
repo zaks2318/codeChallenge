@@ -31,7 +31,7 @@ class RewardsServiceTest {
         when(rewardsServiceUtils.getMonthlyRewardsByCustomerId(anyInt())).thenReturn(monthlyReward);
         String reward = rewardsService.getMonthlyRewardsByCustomerId(customerId);
 
-        Assertions.assertEquals("In 12 month, You earned 5310 points.\n", reward);
+        Assertions.assertEquals("In 12, this month, You earned 5310 points.\n", reward);
     }
 
     @Test

@@ -2,6 +2,7 @@ package com.challenge.code.controller;
 
 import com.challenge.code.exception.ServiceException;
 import com.challenge.code.service.RewardsService;
+import jakarta.persistence.criteria.CriteriaBuilder;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -18,6 +19,7 @@ import org.springframework.http.ResponseEntity;
 class RewardsControllerTest {
 
     private Integer customerId = 1;
+    private Integer notExistCustomerId = 4;
 
     @InjectMocks
     private RewardsController rewardsController;
@@ -36,6 +38,15 @@ class RewardsControllerTest {
     }
 
     @Test
+    void getMonthlyRewardReportFail(){
+        when(rewardsService.getMonthlyRewardsByCustomerId(anyInt())).thenReturn("");
+
+        Assertions.assertThrows(ServiceException.class, () -> {
+            rewardsController.getMonthlyRewardReport(notExistCustomerId);
+        });
+    }
+
+    @Test
     void getTotalRewardReport() throws ServiceException {
         when(rewardsService.getTotalRewardsByCustomerId(anyInt())).thenReturn("Your total rewards are some points.");
 
@@ -43,5 +54,14 @@ class RewardsControllerTest {
 
         Assertions.assertNotNull(customerId);
         Assertions.assertEquals(HttpStatus.OK, response.getStatusCode());
+    }
+
+    @Test
+    void getTotalRewardReportFail(){
+        when(rewardsService.getTotalRewardsByCustomerId(anyInt())).thenReturn("");
+
+        Assertions.assertThrows(ServiceException.class, () -> {
+            rewardsController.getTotalRewardReport(notExistCustomerId);
+                });
     }
 }
