@@ -34,15 +34,6 @@ public class Transaction {
     @Column(name = "create_day")
     private Integer day;
 
-//    @Column(name = "create_year")
-//    private String year;
-//
-//    @Column(name = "create_month")
-//    private String month;
-//
-//    @Column(name = "create_day")
-//    private String day;
-
     @Column(name = "transaction_amount")
     private double amount;
 }

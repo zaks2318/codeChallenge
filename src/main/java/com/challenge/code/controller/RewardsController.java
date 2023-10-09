@@ -19,6 +19,11 @@ public class RewardsController {
         this.rewardsService = rewardsService;
     }
 
+    /*
+    This endpoint is for getting the monthly rewards report for a customer.
+    It takes an integer which is the customer ID as an input.
+    It returns a response with a report with month and monthly rewards.
+    */
     @GetMapping("/{customerId}/monthly-rewards")
     public ResponseEntity getMonthlyRewardReport(@PathVariable Integer customerId) throws ServiceException{
 
@@ -36,6 +41,11 @@ public class RewardsController {
         return ResponseEntity.ok().body(report);
     }
 
+    /*
+    This endpoint is for getting the total rewards report for a customer.
+    It takes an integer which is the customer ID as an input.
+    It returns a response with a report with total rewards points for that customer.
+    */
     @GetMapping("/{customerId}/total-rewards")
     public ResponseEntity getTotalRewardReport(@PathVariable Integer customerId) throws ServiceException{
 

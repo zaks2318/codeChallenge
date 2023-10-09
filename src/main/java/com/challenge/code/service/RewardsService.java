@@ -18,6 +18,10 @@ public class RewardsService {
         this.rewardsServiceUtils=rewardsServiceUtils;
     }
 
+    /*
+    getMonthlyRewardsByCustomerId, this method is for getting the monthly rewards report for a customer.
+    It takes an integer customer ID as an input, and return a string of the monthly reward report.
+    */
     public String getMonthlyRewardsByCustomerId(Integer customerId){
         Map<Integer,Long> rewards =  rewardsServiceUtils.getMonthlyRewardsByCustomerId(customerId);
         log.info("RewardsService--getMonthlyRewardsByCustomerId rewards months: " + rewards.size());
@@ -28,6 +32,10 @@ public class RewardsService {
         return report.toString();
     }
 
+    /*
+    getTotalRewardsByCustomerId, this method is for getting the total rewards report for a customer.
+    It takes an integer customer ID as an input, and return a string of the total reward report.
+    */
     public String getTotalRewardsByCustomerId(Integer customerId){
         Long report = rewardsServiceUtils.getTotalRewardsByCustomerId(customerId);
         return "Your total rewards are " + report+ " points";
