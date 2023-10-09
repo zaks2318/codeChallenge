@@ -85,6 +85,9 @@
 					<excludes>
 						<exclude>**/domain/**</exclude>
 						<exclude>**/config/**</exclude>
+						<exclude>**/model/**</exclude>
+						<exclude>**/exception/**</exclude>
+						<exclude>**/repository/**</exclude>
 					</excludes>
 				</configuration>
 				<executions>

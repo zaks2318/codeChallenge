@@ -6,10 +6,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.time.LocalDateTime;
 
 @Slf4j
 @RestController
@@ -22,8 +21,8 @@ public class RewardsController {
         this.rewardsService = rewardsService;
     }
 
-    @GetMapping("/monthly-rewards")
-    public ResponseEntity getMonthlyRewardReport(@RequestParam Integer customerId) throws ServiceException{
+    @GetMapping("/monthly-rewards/customers/{customerId}")
+    public ResponseEntity getMonthlyRewardReport(@PathVariable Integer customerId) throws ServiceException{
 
         long start = System.nanoTime();
         log.info("/MonthlyRewards--getMonthlyRewardReport start time: "+ start);
@@ -39,8 +38,8 @@ public class RewardsController {
         return ResponseEntity.ok().body(report);
     }
 
-    @GetMapping("/total-rewards")
-    public ResponseEntity getTotalRewardReport(@RequestParam Integer customerId) throws ServiceException{
+    @GetMapping("/total-rewards/customers/{customerId}")
+    public ResponseEntity getTotalRewardReport(@PathVariable Integer customerId) throws ServiceException{
 
         long start = System.nanoTime();
         log.info("/TotalRewards--getTotalRewardReport start time: "+ start);
