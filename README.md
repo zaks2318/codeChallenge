@@ -21,7 +21,5 @@
 # Jacoco Test Coverage
 ![img_10.png](img_10.png)
 # Health Check
-![img_9.png](img_9.png)![img_8.png](img_8.png)
-
-![img_8.png](img_8.png)
+![img_9.png](img_9.png)
 # Thank You For Reading!!
