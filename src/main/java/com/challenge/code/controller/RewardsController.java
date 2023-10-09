@@ -5,13 +5,11 @@ import com.challenge.code.service.RewardsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @Slf4j
 @RestController
+@RequestMapping("/v1/customers")
 public class RewardsController {
 
     private final RewardsService rewardsService;
@@ -21,7 +19,7 @@ public class RewardsController {
         this.rewardsService = rewardsService;
     }
 
-    @GetMapping("/monthly-rewards/customers/{customerId}")
+    @GetMapping("/{customerId}/monthly-rewards")
     public ResponseEntity getMonthlyRewardReport(@PathVariable Integer customerId) throws ServiceException{
 
         long start = System.nanoTime();
@@ -38,7 +36,7 @@ public class RewardsController {
         return ResponseEntity.ok().body(report);
     }
 
-    @GetMapping("/total-rewards/customers/{customerId}")
+    @GetMapping("/{customerId}/total-rewards")
     public ResponseEntity getTotalRewardReport(@PathVariable Integer customerId) throws ServiceException{
 
         long start = System.nanoTime();
